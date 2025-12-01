@@ -24,61 +24,61 @@ jobs:
     - name: Generate PDF
       run: |
         python << 'EOF'
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
-from reportlab.lib.pagesizes import A4
-from reportlab.lib import colors
-from reportlab.lib.styles import getSampleStyleSheet
+        from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+        from reportlab.lib.pagesizes import A4
+        from reportlab.lib import colors
+        from reportlab.lib.styles import getSampleStyleSheet
 
-pdf_path = "Director_of_Welfare_Budget_Proposal.pdf"
+        pdf_path = "Director_of_Welfare_Budget_Proposal.pdf"
 
-data = [
-    ["Name", "Description", "Quantity", "Unit Cost", "Estimated Cost"],
-    ["Paracetamol", "Pain relief medication", "1", "#2500", "#2500"],
-    ["Pain Relief Spray", "For quick pain relief", "2", "#3000", "#6000"],
-    ["Pure Water", "Drinking", "1 month", "#8000", "#8000"],
-    ["Glucose", "Energy supplement", "2", "#1500", "#3000"],
-    ["Plaster", "First aid plaster", "2", "#3500", "#7000"],
-    ["Cotton Bud", "Hygiene use", "4", "#200", "#800"],
-    ["Methylated Spirit", "Cleaning wounds", "1", "#3000", "#3000"],
-    ["Bandage", "Wound dressing", "4", "#500", "#2000"],
-    ["Cotton Wool", "Medical use", "2", "#1000", "#2000"],
+        data = [
+            ["Name", "Description", "Quantity", "Unit Cost", "Estimated Cost"],
+            ["Paracetamol", "Pain relief medication", "1", "#2500", "#2500"],
+            ["Pain Relief Spray", "For quick pain relief", "2", "#3000", "#6000"],
+            ["Pure Water", "Drinking", "1 month", "#8000", "#8000"],
+            ["Glucose", "Energy supplement", "2", "#1500", "#3000"],
+            ["Plaster", "First aid plaster", "2", "#3500", "#7000"],
+            ["Cotton Bud", "Hygiene use", "4", "#200", "#800"],
+            ["Methylated Spirit", "Cleaning wounds", "1", "#3000", "#3000"],
+            ["Bandage", "Wound dressing", "4", "#500", "#2000"],
+            ["Cotton Wool", "Medical use", "2", "#1000", "#2000"],
 
-    ["Outstanding", "Money to be paid to the Welfare Director", "", "", "#2000"],
-]
+            ["Outstanding", "Money to be paid to the Welfare Director", "", "", "#2000"],
+        ]
 
-styles = getSampleStyleSheet()
-title_style = styles["Heading1"]
-title_style.alignment = 1  # Center
+        styles = getSampleStyleSheet()
+        title_style = styles["Heading1"]
+        title_style.alignment = 1  # Center
 
-subtitle_style = styles["Normal"]
-subtitle_style.alignment = 0  # Left
+        subtitle_style = styles["Normal"]
+        subtitle_style.alignment = 0  # Left
 
-doc = SimpleDocTemplate(pdf_path, pagesize=A4)
+        doc = SimpleDocTemplate(pdf_path, pagesize=A4)
 
-elements = []
+        elements = []
 
-title = Paragraph("DIRECTOR OF WELFARE BUDGET PROPOSAL", title_style)
-elements.append(title)
-elements.append(Spacer(1, 12))
+        title = Paragraph("DIRECTOR OF WELFARE BUDGET PROPOSAL", title_style)
+        elements.append(title)
+        elements.append(Spacer(1, 12))
 
-subtitle = Paragraph("Prepared for: Zaynab Dawodu<br/>Session: 2023/2024", subtitle_style)
-elements.append(subtitle)
-elements.append(Spacer(1, 20))
+        subtitle = Paragraph("Prepared for: Zaynab Dawodu<br/>Session: 2023/2024", subtitle_style)
+        elements.append(subtitle)
+        elements.append(Spacer(1, 20))
 
-table = Table(data, colWidths=[110, 160, 60, 80, 80])
-table.setStyle(TableStyle([
-    ('BACKGROUND', (0,0), (-1,0), colors.lightgrey),
-    ('TEXTCOLOR', (0,0), (-1,0), colors.black),
-    ('GRID', (0,0), (-1,-1), 1, colors.black),
-    ('ALIGN', (0,0), (-1,0), 'CENTER'),
-    ('ALIGN', (2,1), (4,-1), 'CENTER'),
-    ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
-]))
+        table = Table(data, colWidths=[110, 160, 60, 80, 80])
+        table.setStyle(TableStyle([
+            ('BACKGROUND', (0,0), (-1,0), colors.lightgrey),
+            ('TEXTCOLOR', (0,0), (-1,0), colors.black),
+            ('GRID', (0,0), (-1,-1), 1, colors.black),
+            ('ALIGN', (0,0), (-1,0), 'CENTER'),
+            ('ALIGN', (2,1), (4,-1), 'CENTER'),
+            ('FONTNAME', (0,0), (-1,0), 'Helvetica-Bold'),
+        ]))
 
-elements.append(table)
+        elements.append(table)
 
-doc.build(elements)
-EOF
+        doc.build(elements)
+        EOF
 
     - name: Upload PDF artifact
       uses: actions/upload-artifact@v4
