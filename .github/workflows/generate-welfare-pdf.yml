@@ -14,7 +14,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
+        python-version: "3.11"
 
     - name: Install dependencies
       run: |
@@ -29,21 +29,21 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.lib.styles import getSampleStyleSheet
 
-pdf_path = "Director_of_Welfare_Budget_Proposal_v5.pdf"
+pdf_path = "Director_of_Welfare_Budget_Proposal.pdf"
 
 data = [
     ["Name", "Description", "Quantity", "Unit Cost", "Estimated Cost"],
-    ["Paracetamol", "Pain relief medication", "1", "₦2,500", "₦2,500"],
-    ["Pain Relief Spray", "For quick pain relief", "2", "₦3,000", "₦6,000"],
-    ["Pure Water", "Drinking", "1 month", "₦8,000", "₦8,000"],
-    ["Glucose", "Energy supplement", "2", "₦1,500", "₦3,000"],
-    ["Plaster", "First aid plaster", "2", "₦3,500", "₦7,000"],
-    ["Cotton Bud", "Hygiene use", "4", "₦200", "₦800"],
-    ["Methylated Spirit", "Cleaning wounds", "1", "₦3,000", "₦3,000"],
-    ["Bandage", "Wound dressing", "4", "₦500", "₦2,000"],
-    ["Cotton Wool", "Medical use", "2", "₦1,000", "₦2,000"],
+    ["Paracetamol", "Pain relief medication", "1", "#2500", "#2500"],
+    ["Pain Relief Spray", "For quick pain relief", "2", "#3000", "#6000"],
+    ["Pure Water", "Drinking", "1 month", "#8000", "#8000"],
+    ["Glucose", "Energy supplement", "2", "#1500", "#3000"],
+    ["Plaster", "First aid plaster", "2", "#3500", "#7000"],
+    ["Cotton Bud", "Hygiene use", "4", "#200", "#800"],
+    ["Methylated Spirit", "Cleaning wounds", "1", "#3000", "#3000"],
+    ["Bandage", "Wound dressing", "4", "#500", "#2000"],
+    ["Cotton Wool", "Medical use", "2", "#1000", "#2000"],
 
-    ["Outstanding", "Money to be paid to the Welfare Director", "", "", "₦2,000"],
+    ["Outstanding", "Money to be paid to the Welfare Director", "", "", "#2000"],
 ]
 
 styles = getSampleStyleSheet()
