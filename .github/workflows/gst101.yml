@@ -1,0 +1,105 @@
+name: Generate GST 101 PDF
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install reportlab
+
+      - name: Generate PDF
+        run: |
+          python << 'EOF'
+          from reportlab.lib.pagesizes import letter
+          from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+          from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+          
+          def create_pdf():
+              doc = SimpleDocTemplate("GST101_Past_Questions.pdf", pagesize=letter)
+              styles = getSampleStyleSheet()
+              
+              # Custom styles
+              title_style = ParagraphStyle('TitleStyle', parent=styles['Heading1'], alignment=1, spaceAfter=20)
+              question_style = ParagraphStyle('QuestionStyle', parent=styles['Normal'], spaceBefore=10, leading=14)
+              answer_style = ParagraphStyle('AnswerStyle', parent=styles['Normal'], leftIndent=20, leading=12)
+          
+              content = []
+              content.append(Paragraph("<b>GST 101: USE OF ENGLISH & COMMUNICATION SKILLS</b>", title_style))
+              content.append(Paragraph("<i>Past Questions and Answers (Source: TESSA)</i>", styles['Normal']))
+              content.append(Spacer(1, 12))
+          
+              # All 40 questions exactly from your document
+              questions = [
+                  ("1. Listening is useless if there is no", ["A. Focus", "<b>B. Comprehension</b>", "C. Attention", "D. Interaction"]),
+                  ("2. The following are factors affecting comprehension, except", ["A. Not being familiar with the topic", "B. Lack of concentration", "C. Limited language and vocabulary", "<b>D. Note-jotting</b>"]),
+                  ("3. ________ is taking notes from lectures or speeches", ["A. Note-making", "B. Note-writing", "<b>C. Note-taking</b>", "D. Note-jotting"]),
+                  ("4. ________ is the activity done during study time", ["<b>A. Note-making</b>", "B. Note-writing", "C. Note-taking", "D. Note-jotting"]),
+                  ("5. When reading a book in the library, what do you do?", ["<b>A. Note-making</b>", "B. Note-taking", "C. Note-writing", "D. Note-jotting"]),
+                  ("6. When listening to a documentary, what do you do?", ["A. Note-jotting", "B. Note-writing", "<b>C. Note-taking</b>", "D. Note-making"]),
+                  ("7. When in a crucial meeting, what do you do?", ["A. Note-making", "<b>B. Note-taking</b>", "C. Note-writing", "D. Note-jotting"]),
+                  ("8. Any situation that suggests reading in all the situations requires", ["A. Note-jotting", "B. Note-writing", "<b>C. Note-making</b>", "D. Note-taking"]),
+                  ("9. Any situation that suggests listening to an audio/documentary or related requires", ["A. Note-jotting", "B. Note-writing", "C. Note-making", "<b>D. Note-taking</b>"]),
+                  ("10. The following are steps on how to take note during reading", ["A. Understanding and writing points", "B. Summarizing the main points", "C. Using abbreviations", "<b>D. All of the above</b>"]),
+                  ("11. Huge data collected across period of time are also stored in form of", ["<b>A. Data bank</b>", "B. Data collection", "C. Data Time", "D. Data Money"]),
+                  ("12. Data can also be stored in form of...", ["A. Scores", "B. Figures", "C. Figures or scores", "<b>D. None of the above</b>"]),
+                  ("13. ________ is the representations of information in form of drawings, paintings, sketches or other forms of illustrations", ["A. Illustrations", "B. Drawings", "C. Figures", "<b>D. All of the above</b>"]),
+                  ("14. One of the high-order skills you need to perform creditably well while listening to a talk, a speech or a lecture is", ["A. Ability of interpreting the speaker's viewpoints", "B. Ability of focusing on the speaker's explanation", "<b>C. Skills of paying attention on the speaker's major point</b>", "D. Skills of summarising every point the speaker alter"]),
+                  ("15. Critical analysis involves looking at the... and... of what is heard", ["A. The head, leg", "B. Merit, demerit", "C. Advantage, disadvantage", "<b>D. Explanation, viewpoint</b>"]),
+                  ("16. Listening-comprehension has been seen in this course GST 101 as an interactive process involving the interpretative, and the...", ["A. Critical mind", "<b>B. Effectiveness</b>", "C. Gravity", "D. Weight"]),
+                  ("17. Your reading speed will vary according to the... of reading", ["A. Effectiveness", "B. Gravity", "C. Weight", "<b>D. Purpose</b>"]),
+                  ("18. You can control your reading speed according to the purpose of reading, and the kind of reading activities you are performing", ["A. Type of Encyclopaedia", "B. Type of novel", "C. Type of book", "<b>D. Type of reading materials</b>"]),
+                  ("19. The two related reading activities that are discussed in this course are", ["A. Skimming and scanning", "B. Scamming and scanning", "C. Skimming and scamming", "<b>D. Skimming and scanning</b>"]),
+                  ("20. The fastest reading speed is called", ["A. Skimming", "<b>B. Scanning</b>", "C. Skimming", "D. Skimming and scanning"]),
+                  ("21. ...is screening the passage very rapidly to locate important information within a large chunk of reading materials", ["A. Skimming", "B. Scanning", "<b>C. Skimming</b>", "D. Skimming and scanning"]),
+                  ("22. In..., the eyes are not necessarily moving from left to right. They may move left and right, top to bottom, across the pages.", ["A. Skimming", "<b>B. Scanning</b>", "C. Skimming", "D. Skimming and scanning"]),
+                  ("23. You... in order to locate dates in a bulletin but... to determine whether or not the article favours our political party", ["A. Scan, scan", "B. Skim, scan", "<b>C. Scan, skim</b>", "D. Skim, skim"]),
+                  ("24. ...is a generic term given to the tasks, the steps, the people and tools involved in each step of a business process", ["A. Workflow", "<b>B. Dataflow</b>", "C. Openware", "D. Shareflow"]),
+                  ("25. The benefits of using... will be better understood with a basic knowledge of its various functionalities", ["A. Locus Operandi", "<b>B. Lotus operandi</b>", "C. Lotus Notes", "D. Locus Notes"]),
+                  ("26. As average speed is for easier texts and reading materials, so is... for fast reading", ["A. Skimming and scanning", "B. Slow speed rate", "C. Average speed rate", "<b>D. All of the above</b>"]),
+                  ("27. For you to read at an average speed, you must be reading at... words per minute", ["A. 30-500", "<b>B. 300</b>", "C. 980", "D. 30-50"]),
+                  ("28. Always remember that the primary goal of all reading activities, no matter the reading speed, is to", ["A. Be focused", "<b>B. Comprehend</b>", "C. Carried along", "D. None of the above"]),
+                  ("29. Reading at the... is needed when you want to locate any information quickly or gain general impression of the reading material", ["A. Fastest speed", "<b>B. Slowest speed</b>", "C. Average speed", "D. Scanning and skimming speed"]),
+                  ("30. Reading at the... is needed when you are reading in a study type manner", ["A. Fastest speed", "<b>B. Slowest speed</b>", "C. Average speed", "D. Scanning and skimming speed"]),
+                  ("31. For a poor reader to achieve a comprehension rate of 80-90%, the study speed will be as slow as... words per minute", ["A. 60-125", "B. 30-500", "<b>C. 30-50</b>", "D. None of the above"]),
+                  ("32. To increase your vocabulary power suggests a lot of efforts on your own part. You need to read... and...", ["A. Intrinsicly and extrinsicly", "B. Intensively and extensively", "<b>C. Internally and externally</b>", "D. Privately and publicly"]),
+                  ("33. What is another word for (acuity) as used in: The man was sure of his acuity", ["A. Keeness", "B. Bitterness", "C. Dishonesty", "<b>D. Skillfulness</b>"]),
+                  ("34. What is another word for (fritter) as used in: He calls the boy a mere fritter", ["A. Shatter", "B. Wastebag", "<b>C. Foolish talker</b>", "D. Bungle"]),
+                  ("35. What is another word for (preposterous) as used in: In this day and age, all talk of a defensive nuclear war is preposterous...", ["<b>A. Unreasonable</b>", "B. Unreasonable", "C. Realistic", "D. Wasteful"]),
+                  ("36. What is another word for (provocative) as used in: Politicians are often cautioned to avoid making provocative statements", ["A. Talkative", "B. Inciting", "<b>C. Contradictory</b>", "D. Persuasive"]),
+                  ("37. What is another word for (procrastinates) as used in: Mr. Albert invariably turns in good assignments but he procrastinates a lot.", ["<b>A. Delays</b>", "B. Tells lies", "C. Argues", "D. Tries to persuade"]),
+                  ("38. What is another word for (loquacious) as used in: Danladi is a rather loquacious fellow", ["A. Smooth and pleasant", "B. Good at languages", "<b>C. Talkative</b>", "D. Uninspiring"]),
+                  ("39. What is another word for (recrimination) as used in: The argument ended in recrimination", ["A. Diversion", "<b>B. Re-dedication</b>", "C. Mishandling", "D. Counter-charge"]),
+                  ("40. What is another word for (hazardous) as used in: Investment in uranium exploitation can be hazardous", ["A. Doubtful", "B. Handy", "C. Unprotected", "<b>D. Risky</b>"])
+              ]
+          
+              for q_text, options in questions:
+                  content.append(Paragraph(q_text, question_style))
+                  for opt in options:
+                      content.append(Paragraph(opt, answer_style))
+          
+              doc.build(content)
+              print("PDF successfully created: GST101_Past_Questions.pdf")
+          
+          create_pdf()
+          EOF
+          
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gst101-pdf
+          path: GST-101-Revised-by-T.pdf
+
