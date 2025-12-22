@@ -29,7 +29,7 @@ jobs:
           from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
           
           def create_pdf():
-              doc = SimpleDocTemplate("GST101_Past_Questions.pdf", pagesize=letter)
+              doc = SimpleDocTemplate("GST-101-Revised-by-T.pdf", pagesize=letter)
               styles = getSampleStyleSheet()
               
               # Custom styles
@@ -39,10 +39,10 @@ jobs:
           
               content = []
               content.append(Paragraph("<b>GST 101: USE OF ENGLISH & COMMUNICATION SKILLS</b>", title_style))
-              content.append(Paragraph("<i>Past Questions and Answers (Source: TESSA)</i>", styles['Normal']))
+              content.append(Paragraph("<i>Past Questions and Answers (Source: Tayo)</i>", styles['Normal']))
               content.append(Spacer(1, 12))
           
-              # All 40 questions exactly from your document
+            
               questions = [
                   ("1. Listening is useless if there is no", ["A. Focus", "<b>B. Comprehension</b>", "C. Attention", "D. Interaction"]),
                   ("2. The following are factors affecting comprehension, except", ["A. Not being familiar with the topic", "B. Lack of concentration", "C. Limited language and vocabulary", "<b>D. Note-jotting</b>"]),
@@ -92,7 +92,7 @@ jobs:
                       content.append(Paragraph(opt, answer_style))
           
               doc.build(content)
-              print("PDF successfully created: GST101_Past_Questions.pdf")
+              print("PDF successfully created: GST-101-Revised-by-T.pdf")
           
           create_pdf()
           EOF
