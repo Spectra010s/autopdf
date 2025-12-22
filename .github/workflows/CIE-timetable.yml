@@ -82,8 +82,7 @@ jobs:
                   # Build PDF
                   doc.build(elements)
                   print(f"PDF created successfully: {filename}")
-              
-              if __name__ == "__main__":
+            
                   create_timetable_pdf("CIE_Timetable.pdf")
                 EOF
           
