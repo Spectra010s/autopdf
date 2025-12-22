@@ -1,4 +1,4 @@
-name: Generate CIE Time Table PDF
+name: Generate CIE Level Timetables
 
 on:
   workflow_dispatch:
@@ -21,75 +21,95 @@ jobs:
           python -m pip install --upgrade pip
           pip install reportlab
 
-      - name: Generate PDF
+      - name: Generate PDFs
         run: |
           python << 'EOF'
           from reportlab.lib import colors
           from reportlab.lib.pagesizes import A4, landscape
-           from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
-           from reportlab.lib.styles import getSampleStyleSheet
-              
-          def create_timetable_pdf(filename):
+          from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+          from reportlab.lib.styles import getSampleStyleSheet
+
+          def create_level_pdf(filename, level_title, table_data):
               doc = SimpleDocTemplate(filename, pagesize=landscape(A4))
-                  elements = []
-                  
-               # Styles
+              elements = []
               styles = getSampleStyleSheet()
-                  title_style = styles['Heading1']
-                  
-                  # Title
-                  elements.append(Paragraph("Computer and Information Engineering Exam Timetable (2025/2026)", title_style))
-                  elements.append(Paragraph("<br/><br/>", styles['Normal']))
               
-                  data = [
-                      ['Date', 'Time', 'Course Code', 'Venue'],
-                      ['Mon, Jan 19, 2026', 'Morning', 'GST 101, CPE 301, ENG 209', 'ICT Centre Ikole'],
-                      ['', 'Afternoon', 'GST 101, CPE 403', 'ICT Centre / EA3, Cen-Lab'],
-                      ['', 'Evening', 'GST 101, CPE 505', 'ICT Centre / EA2'],
-                      ['Tue, Jan 20, 2026', 'Morning', 'GST 201, CPE 409', 'ICT Centre / EA1, EA2'],
-                      ['', 'Afternoon', 'GST 201, CPE 509', 'ICT Centre / EA3'],
-                      ['', 'Evening', 'GST 201, ABE 301', 'ICT Centre / EA2, EA3'],
-                      ['Mon, Jan 26, 2026', 'Morning', 'ENG 211, MTH 101/105, CPE 501', 'ICT Centre / EA1, EA2'],
-                      ['', 'Afternoon', 'ENG 301', 'ICT Centre Ikole'],
-                      ['Tue, Jan 27, 2026', 'Morning', 'CHM 101, ENG 201', 'ICT Centre / EA2, EA3'],
-                      ['', 'Afternoon', 'ENG 201', 'ICT Centre Ikole'],
-                      ['Mon, Feb 2, 2026', 'Morning', 'CPE 315', 'EA1, EA2, EA3'],
-                      ['', 'Afternoon', 'CPE 401', 'EA1, EA2, EA3'],
-                      ['Tue, Feb 3, 2026', 'Afternoon', 'CPE 507, CPE 307', 'EA1-EA3, Cen-Lab'],
-                      ['', 'Evening', 'CPE 317', 'EA1, EA2, EA3'],
-                      ['Mon, Feb 9, 2026', 'Morning', 'ICE 101', 'EA 1 & 2'],
-                  ]
+              # Header
+              elements.append(Paragraph(f"Computer and Information Engineering - {level_title}", styles['Heading1']))
+              elements.append(Spacer(1, 12))
               
-                  # Create Table
-                  table = Table(data, colWidths=[120, 100, 250, 200])
-              
-                  # Table Styling
-                  style = TableStyle([
-                      ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
-                      ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
-                      ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-                      ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-                      ('FONTSIZE', (0, 0), (-1, -1), 10),
-                      ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
-                      ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
-                      ('GRID', (0, 0), (-1, -1), 1, colors.black),
-                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-                  ])
-                  table.setStyle(style)
-              
-                  elements.append(table)
-                  
-                  # Build PDF
-                  doc.build(elements)
-                  print(f"PDF created successfully: {filename}")
-            
-                  create_timetable_pdf("CIE_Timetable.pdf")
-                EOF
-          
-      - name: Upload PDF artifact
+              # Table Setup
+              table = Table(table_data, colWidths=[140, 100, 260, 200])
+              style = TableStyle([
+                  ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                  ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                  ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                  ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                  ('FONTSIZE', (0, 0), (-1, -1), 10),
+                  ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                  ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                  ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                  ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+              ])
+              table.setStyle(style)
+              elements.append(table)
+              doc.build(elements)
+              print(f"Created: {filename}")
+
+          # --- 100 LEVEL ---
+          data_100 = [
+              ['Date', 'Time', 'Course Code', 'Venue'],
+              ['Mon, Jan 19, 2026', 'Morning/Afternoon', 'GST 101 (CBT)', 'ICT Centre Ikole'],
+              ['Mon, Jan 26, 2026', 'Morning', 'MTH 101/105 (CBT)', 'ICT Centre Ikole'],
+              ['Tue, Jan 27, 2026', 'Morning', 'CHM 101 (CBT)', 'ICT Centre Ikole'],
+              ['Mon, Feb 9, 2026', 'Morning', 'ICE 101', 'EA 1 & 2']
+          ]
+          create_level_pdf("CIE_100_Level.pdf", "100 Level Timetable", data_100)
+
+          # --- 200 LEVEL ---
+          data_200 = [
+              ['Date', 'Time', 'Course Code', 'Venue'],
+              ['Mon, Jan 19, 2026', 'Morning', 'ENG 209 (CBT)', 'ICT Centre Ikole'],
+              ['Tue, Jan 20, 2026', 'Morning/Afternoon', 'GST 201 (CBT)', 'ICT Centre Ikole'],
+              ['Mon, Jan 26, 2026', 'Morning', 'ENG 211 (CBT)', 'ICT Centre Ikole'],
+              ['Tue, Jan 27, 2026', 'Morning/Afternoon', 'ENG 201', 'ICT Centre / EA 2 & 3']
+          ]
+          create_level_pdf("CIE_200_Level.pdf", "200 Level Timetable", data_200)
+
+          # --- 300 LEVEL ---
+          data_300 = [
+              ['Date', 'Time', 'Course Code', 'Venue'],
+              ['Mon, Jan 19, 2026', 'Morning', 'CPE 301 (CBT)', 'ICT Centre Ikole'],
+              ['Tue, Jan 20, 2026', 'Evening', 'ABE 301', 'EA 2 & 3'],
+              ['Mon, Jan 26, 2026', 'Afternoon', 'ENG 301 (CBT)', 'ICT Centre Ikole'],
+              ['Mon, Feb 2, 2026', 'Morning', 'CPE 315', 'EA 1, 2 & 3'],
+              ['Tue, Feb 3, 2026', 'Afternoon', 'CPE 307', 'EA 1-3, Cen-Lab'],
+              ['Tue, Feb 3, 2026', 'Evening', 'CPE 317', 'EA 1, 2 & 3']
+          ]
+          create_level_pdf("CIE_300_Level.pdf", "300 Level Timetable", data_300)
+
+          # --- 400 LEVEL ---
+          data_400 = [
+              ['Date', 'Time', 'Course Code', 'Venue'],
+              ['Mon, Jan 19, 2026', 'Afternoon', 'CPE 403', 'EA 3, Cen-Lab'],
+              ['Tue, Jan 20, 2026', 'Morning', 'CPE 409', 'EA 1 & 2'],
+              ['Mon, Feb 2, 2026', 'Afternoon', 'CPE 401', 'EA 1, 2 & 3']
+          ]
+          create_level_pdf("CIE_400_Level.pdf", "400 Level Timetable", data_400)
+
+          # --- 500 LEVEL ---
+          data_500 = [
+              ['Date', 'Time', 'Course Code', 'Venue'],
+              ['Mon, Jan 19, 2026', 'Evening', 'CPE 505', 'EA 2'],
+              ['Tue, Jan 20, 2026', 'Afternoon', 'CPE 509', 'EA 3'],
+              ['Mon, Jan 26, 2026', 'Morning', 'CPE 501', 'EA 1 & 2'],
+              ['Tue, Feb 3, 2026', 'Afternoon', 'CPE 507', 'EA 1-3, Cen-Lab']
+          ]
+          create_level_pdf("CIE_500_Level.pdf", "500 Level Timetable", data_500)
+          EOF
+
+      - name: Upload PDF artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: cie-tt-pdf
-          path: CIE_Timetable.pdf
-          
-
+          name: cie-timetables-all-levels
+          path: "*.pdf"
