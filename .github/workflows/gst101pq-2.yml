@@ -1,4 +1,4 @@
-name: Generate GST 101 PDF
+name: Generate GST 101 PDF Past Question
 
 on:
   workflow_dispatch:
