@@ -1,0 +1,96 @@
+name: Generate CIE Time Table PDF
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install reportlab
+
+      - name: Generate PDF
+        run: |
+          python << 'EOF'
+              from reportlab.lib import colors
+              from reportlab.lib.pagesizes import A4, landscape
+              from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
+              from reportlab.lib.styles import getSampleStyleSheet
+              
+              def create_timetable_pdf(filename):
+                  doc = SimpleDocTemplate(filename, pagesize=landscape(A4))
+                  elements = []
+                  
+                  # Styles
+                  styles = getSampleStyleSheet()
+                  title_style = styles['Heading1']
+                  
+                  # Title
+                  elements.append(Paragraph("Computer and Information Engineering Exam Timetable (2025/2026)", title_style))
+                  elements.append(Paragraph("<br/><br/>", styles['Normal']))
+              
+                  data = [
+                      ['Date', 'Time', 'Course Code', 'Venue'],
+                      ['Mon, Jan 19, 2026', 'Morning', 'GST 101, CPE 301, ENG 209', 'ICT Centre Ikole'],
+                      ['', 'Afternoon', 'GST 101, CPE 403', 'ICT Centre / EA3, Cen-Lab'],
+                      ['', 'Evening', 'GST 101, CPE 505', 'ICT Centre / EA2'],
+                      ['Tue, Jan 20, 2026', 'Morning', 'GST 201, CPE 409', 'ICT Centre / EA1, EA2'],
+                      ['', 'Afternoon', 'GST 201, CPE 509', 'ICT Centre / EA3'],
+                      ['', 'Evening', 'GST 201, ABE 301', 'ICT Centre / EA2, EA3'],
+                      ['Mon, Jan 26, 2026', 'Morning', 'ENG 211, MTH 101/105, CPE 501', 'ICT Centre / EA1, EA2'],
+                      ['', 'Afternoon', 'ENG 301', 'ICT Centre Ikole'],
+                      ['Tue, Jan 27, 2026', 'Morning', 'CHM 101, ENG 201', 'ICT Centre / EA2, EA3'],
+                      ['', 'Afternoon', 'ENG 201', 'ICT Centre Ikole'],
+                      ['Mon, Feb 2, 2026', 'Morning', 'CPE 315', 'EA1, EA2, EA3'],
+                      ['', 'Afternoon', 'CPE 401', 'EA1, EA2, EA3'],
+                      ['Tue, Feb 3, 2026', 'Afternoon', 'CPE 507, CPE 307', 'EA1-EA3, Cen-Lab'],
+                      ['', 'Evening', 'CPE 317', 'EA1, EA2, EA3'],
+                      ['Mon, Feb 9, 2026', 'Morning', 'ICE 101', 'EA 1 & 2'],
+                  ]
+              
+                  # Create Table
+                  table = Table(data, colWidths=[120, 100, 250, 200])
+              
+                  # Table Styling
+                  style = TableStyle([
+                      ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                      ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                      ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                      ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                      ('FONTSIZE', (0, 0), (-1, -1), 10),
+                      ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                      ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                      ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                  ])
+                  table.setStyle(style)
+              
+                  elements.append(table)
+                  
+                  # Build PDF
+                  doc.build(elements)
+                  print(f"PDF created successfully: {filename}")
+              
+              if __name__ == "__main__":
+                  create_timetable_pdf("CIE_Timetable.pdf")
+                EOF
+          
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cie-tt-pdf
+          path: CIE_Timetable.pdf
+          
+
