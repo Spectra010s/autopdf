@@ -24,17 +24,17 @@ jobs:
       - name: Generate PDF
         run: |
           python << 'EOF'
-              from reportlab.lib import colors
-              from reportlab.lib.pagesizes import A4, landscape
-              from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
-              from reportlab.lib.styles import getSampleStyleSheet
+          from reportlab.lib import colors
+          from reportlab.lib.pagesizes import A4, landscape
+           from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
+           from reportlab.lib.styles import getSampleStyleSheet
               
-              def create_timetable_pdf(filename):
-                  doc = SimpleDocTemplate(filename, pagesize=landscape(A4))
+          def create_timetable_pdf(filename):
+              doc = SimpleDocTemplate(filename, pagesize=landscape(A4))
                   elements = []
                   
-                  # Styles
-                  styles = getSampleStyleSheet()
+               # Styles
+              styles = getSampleStyleSheet()
                   title_style = styles['Heading1']
                   
                   # Title
