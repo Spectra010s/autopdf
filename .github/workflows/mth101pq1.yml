@@ -25,24 +25,28 @@ jobs:
         run: |
           python << 'EOF'
           import os
+          import re
 
           def create_mth101_tex():
               filename = "MTH-101-Past-Question-by-Ty.tex"
               
-              header = r"""\documentclass[10pt,a4paper]{article}
+              header = r"""\documentclass[11pt,a4paper]{article}
           \usepackage[utf8]{inputenc}
           \usepackage{amsmath}
           \usepackage{amsfonts}
           \usepackage{amssymb}
+          \usepackage{enumitem}
           \usepackage[margin=0.8in]{geometry}
-          \title{MTH 101 Past Question By Spectra}
+          \title{\textbf{MTH 101 Past Question}}
           \author{Ty}
           \date{}
           \begin{document}
           \maketitle
+          \pagestyle{plain}
           """
 
-              questions = [
+              # Raw question data
+              raw_questions = [
                   r"1. If $A$ is a subset of a universal set $U$, the compliment of set $A$ is given as: A. $U$ B. $U-A$ C. $U+B$ D. $U-B$",
                   r"2. The set statement $(A \cup B) \cap C = A \cup (B \cap C)$ is relevant to A. Associative Law B. Cummulative lowa C. Distributibe Law D. Closure",
                   r"3. If $U=\{\text{Integers} \le 20\}; D = \{\text{multiples of 4}\}; E = \{\text{multiples of 3}\}$, the element of $D \cap E$ are: A. (1,2) B. $\{3,6,9,15,18\}$ C. (4,8,16,20) D. (3,6,9,12,15,18)",
@@ -60,7 +64,7 @@ jobs:
                   r"15. Simplify $\frac{1}{2-\sqrt{3}} + \frac{5}{\sqrt{3}+2} - \frac{1}{\sqrt{3}-\sqrt{2}}$. A. $12-5\sqrt{3}-\sqrt{2}$ B. $12-5\sqrt{3}+\sqrt{2}$ C. $12+5\sqrt{3}+\sqrt{2}$ D. $12+5\sqrt{3}-\sqrt{2}$",
                   r"16. Find the square root of $7 - \sqrt{13}$. A. 0.8424 B. 1.8424 C. 1.8244 D. 0.8244",
                   r"17. Find the roots of the equation: $x^3 + 5x^2 - 2x - 24$. A. -4,3,2 B. -4,-3,-2 C. -4,-3,2 D. 4,3,-2",
-                  r"18. Find the roots of the equation $2x^3 + 11x^2 - 17x - 6$.",
+                  r"18. Find the roots of the equation $2x^3 + 11x^2 - 17x - 6$. A. -1 B. 2 C. 3 D. 4",
                   r"19. Solve the equation $2x^2 - 5x + 7 = 0$. A. $(5\pm\sqrt{31})/4$ B. $(5\pm i\sqrt{31})/4$ C. $5\pm i\sqrt{31}$ D. $(5\pm\sqrt{31})/2$",
                   r"20. Determine the value of $y^2 + 2y + 1$ in the expression provided. A. $5\pm\sqrt{71}$ B. $5\pm i\sqrt{-71}$ C. $5\pm i\sqrt[2]{71}$ D. $(5\pm i\sqrt{71})/2$",
                   r"21. The value of $k$ in $\sqrt{k-1} + 5\sqrt{k-9} = 4\sqrt{k-6}i$ is: A. 9 B. 10 C. 11 D. 12",
@@ -110,13 +114,13 @@ jobs:
                   r"65. Evaluate $4ab$ where $a, b$ are positive numbers. A. 32 B. $32\sqrt{ab}$ C. 16 D. $16\sqrt{ab}$",
                   r"66. In $5x^4 + 9x^3 - 12x^2 - 9x + 5 = 0$, find $x - 1/x$. A. -1/5, 2 B. 1/2 C. 1/5, -2 D. 5,2",
                   r"67. Square of the remainder when $3x^4-2x^3-10x-5$ is divided by $x-4$. A. 595 B. 475 C. 354025 D. 225625",
-                  r"68. In resolving $1/(x(x-1)(x-2))$ into partial fractions, find A, B, C. A. -2, 1/2, 1/2 B. -1, 1/2, 1/2 C. -1, 1/2, -1 1/2",
+                  r"68. In resolving $1/(x(x-1)(x-2))$ into partial fractions, find A, B, C. A. -2, 1/2, 1/2 B. -1, 1/2, 1/2 C. -1, 1/2, -1 1/2 D. 0",
                   r"69. Range of validity for $x$ in $2x/(x^2-1) > 0$. A. x<1 or x>0 B. x<0 or x<1 C. x<0 or x<1 D. x>0 or x>1",
                   r"70. Remainder when $x^3 + 3x^2 - 13x - 10$ is divided by $(x-3)$. A. 4 B. 4 1/4 C. 6 D. 5",
                   r"71. Given $-2 = A(x-1)^2 + B(x-1)(x-2) + C(x-2)$, find C. A. 2 B. -2 C. 1 D. -1",
                   r"72. Resolve $(x^3 + x^2 - 5x - 15) / ((x^2-1)(x-2))$ and find A, B, C. A. 2,3,4 B. 2,3,0 C. 2,0,3 D. 2, -2, 3",
                   r"73. Range of values for $x$ where $x^2 - 2/(x-2) > x-4$. A. $x > -4$ or $x > 2$ B. $x < -4$ or $x < 2$ C. $x < 4$ or $x > 2$ D. $x < -4$ or $x > 2$",
-                  r"74. In $5x^4 - x^3 + 9x^2 - x + 5 = 0$, find $x + 1/x$.",
+                  r"74. In $5x^4 - x^3 + 9x^2 - x + 5 = 0$, find $x + 1/x$. A. 0 B. 1 C. 2 D. 3",
                   r"75. Find $p$ \& $q$ if $(x-1)$ \& $(x+2)$ are factors of $2x^3 + px^2 - x + q$. A. p=-5, q=-6 B. p=5, q=6 C. p=5, q=-6 D. p=-6, q=-5",
                   r"76. Find $k$ if $4x^3 + kx^2 + 7x - 23$ has remainder 7 when divided by $2x-5$. A. 8 B. -16 C. -8 D. 16",
                   r"77. Express in partial fractions and find A+B-C. A. -3 B. 2 C. 6 D. 7",
@@ -133,34 +137,48 @@ jobs:
               ]
               
               body = ""
-              for q in questions:
-                  body += q + r" \\ " + "\n"
+              for line in raw_questions:
+                  # Regex to split question from the options A, B, C, D
+                  match = re.match(r"(^\d+\.\s+.*?)\s+A\.\s+(.*)\s+B\.\s+(.*)\s+C\.\s+(.*)\s+D\.\s+(.*)", line)
+                  if match:
+                      q_text = match.group(1)
+                      opt_a = match.group(2)
+                      opt_b = match.group(3)
+                      opt_c = match.group(4)
+                      opt_d = match.group(5)
+                      
+                      body += r"\noindent " + q_text + r"\\" + "\n"
+                      body += r"\begin{enumerate}[label=\Alph*., itemsep=0pt, topsep=2pt]" + "\n"
+                      body += r"  \item " + opt_a + "\n"
+                      body += r"  \item " + opt_b + "\n"
+                      body += r"  \item " + opt_c + "\n"
+                      body += r"  \item " + opt_d + "\n"
+                      body += r"\end{enumerate}" + "\n"
+                      body += r"\vspace{1em}" + "\n\n"
+                  else:
+                      # Fallback for questions without standard A. B. C. D. format
+                      body += r"\noindent " + line + r"\\" + "\n"
+                      body += r"\vspace{1em}" + "\n\n"
 
               footer = r"""
           \newpage
-          \section*{Solutions: Answer to Questions}
-          \begin{verbatim}
-          1. B | 2. A | 3. B | 4. D | 5. A
-          6. B | 7. D | 8. C | 9. C | 10. A
-          11. B | 12. A | 13. D | 14. B | 15. D
-          16. B | 17. C | 18. A | 19. B | 20. C
-          21. B | 22. C | 23. A | 24. B | 25. D
-          26. D | 27. A | 28. B | 29. D | 30. B
-          31. C | 32. D | 33. C | 34. A | 35. D
-          36. A | 37. D | 38. B | 39. A | 40. C
-          41. D | 42. C | 43. B | 44. C | 45. A
-          46. A | 47. A | 48. C | 49. B | 50. A
-          51. C | 52. C | 53. A | 54. B | 55. C
-          56. D | 57. C | 58. C | 59. A | 60. B
-          61. C | 62. D | 63. A | 64. D | 65. B
-          66. C | 67. C | 68. B | 69. D | 70. D
-          71. A | 72. D | 73. A | 74. D | 75. C
-          76. C | 77. C | 78. A | 79. C | 80. A
-          81. B | 82. A | 83. C | 84. C | 85. D
-          86. B | 87. D
-          \end{verbatim}
+          \section*{Solutions: Answer Key}
+          \begin{center}
+          \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+          \hline
+          1. B & 2. A & 3. B & 4. D & 5. A & 6. B & 7. D & 8. C & 9. C & 10. A \\ \hline
+          11. B & 12. A & 13. D & 14. B & 15. D & 16. B & 17. C & 18. A & 19. B & 20. C \\ \hline
+          21. B & 22. C & 23. A & 24. B & 25. D & 26. D & 27. A & 28. B & 29. D & 30. B \\ \hline
+          31. C & 32. D & 33. C & 34. A & 35. D & 36. A & 37. D & 38. B & 39. A & 40. C \\ \hline
+          41. D & 42. C & 43. B & 44. C & 45. A & 46. A & 47. A & 48. C & 49. B & 50. A \\ \hline
+          51. C & 52. C & 53. A & 54. B & 55. C & 56. D & 57. C & 58. C & 59. A & 60. B \\ \hline
+          61. C & 62. D & 63. A & 64. D & 65. B & 66. C & 67. C & 68. B & 69. D & 70. D \\ \hline
+          71. A & 72. D & 73. A & 74. D & 75. C & 76. C & 77. C & 78. A & 79. C & 80. A \\ \hline
+          81. B & 82. A & 83. C & 84. C & 85. D & 86. B & 87. D & & & \\ \hline
+          \end{tabular}
+          \end{center}
           \vfill
-          \textit{End of Document - Good Luck with your Exams!}
+          \textit{End of Document - Generated by Ty}
           \end{document}
           """
               
@@ -175,5 +193,5 @@ jobs:
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
-          name: mth101pq1-pdf
+          name: mth101pq1-formatted-pdf
           path: MTH-101-Past-Question-by-Ty.pdf
