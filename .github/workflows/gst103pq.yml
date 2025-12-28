@@ -29,5 +29,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gst103pq-pdf
-          path: GST103-by-Spectra010s.pdf.pdf
+          path: GST103-by-Spectra010s.pdf
 
