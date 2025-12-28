@@ -1,0 +1,33 @@
+name: Generate GST 103 PDF Past Question
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install reportlab
+
+      - name: Generate PDF
+        run: |
+          python gst103pq.py
+          
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gst103pq-pdf
+          path: GST103-by-Spectra010s.pdf.pdf
+
