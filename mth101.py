@@ -2,6 +2,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 import re
+import html
 
 def replace_math_symbols(text):
     """Replaces text shorthand with math symbols and cleans spacing."""
@@ -136,10 +137,14 @@ def create_mth101_pdf():
     ]
 
     for q_text in questions_raw:
-        # 1. apply math symbol replacements
-        clean_text = replace_math_symbols(q_text)
+        # Step 1: Escape special XML characters like < and >
+        # This prevents math like 'x < p' from being seen as a tag start
+        safe_text = html.escape(q_text)
         
-        # 2. Split question from options using regex (Split at A. B. C. or D.)
+        # Step 2: Apply math symbol replacements
+        clean_text = replace_math_symbols(safe_text)
+        
+        # Step 3: Split question from options using regex
         parts = re.split(r'\s([A-D]\.)', clean_text)
         
         if len(parts) > 1:
@@ -147,7 +152,7 @@ def create_mth101_pdf():
             for i in range(1, len(parts), 2):
                 option_letter = parts[i]
                 option_content = parts[i+1]
-                # Stacking options with indentation
+                # Stacking options with indentation using safe tags
                 formatted_q += f"<br/>&nbsp;&nbsp;&nbsp;&nbsp;{option_letter}{option_content}"
             story.append(Paragraph(formatted_q, q_style))
         else:
