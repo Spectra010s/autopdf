@@ -1,0 +1,37 @@
+name: Build Dorcas PDFs
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install reportlab
+
+      - name: Run all Python files in dorcas directory
+        run: |
+          for file in dorcas/*.py; do
+            echo "Running $file"
+            python "$file"
+          done
+
+      - name: Upload generated PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-pdfs
+          path: "*.pdf"
