@@ -100,19 +100,6 @@ Text Editors/IDEs – VS Code, Sublime Text, IntelliJ IDEA, Eclipse
 Version Control – Git tracks code changes; GitHub/GitLab/Bitbucket help teams collaborate
 
 Debuggers – Pause and inspect code to find and fix errors""",
-
-"""Impact of Software Programming
-
-Communication – Apps like WhatsApp, Instagram, and email rely on software programming.
-
-Commerce – Online shopping, banking, and payment systems are all powered by software.
-
-Healthcare – Patient management systems, medical imaging software, and diagnostic tools use programming.
-
-Transportation – GPS apps, navigation systems, and modern vehicles depend on software.
-
-Science & Research – Simulations, data analysis, and discoveries in fields like genomics, climate science, and astronomy rely on custom-built software.""",
-
 """Software programming is a technical skill, a creative discipline, and a tool for shaping the future. It empowers people to solve problems, innovate, and build systems that affect millions of lives every day."""
 ]
 
@@ -184,12 +171,6 @@ Programming is a creative skill. You can develop apps, tools, or games that solv
 
 """5. Problem-Solving Skills
 Programming strengthens logical thinking and analytical skills. It teaches how to break large problems into smaller, manageable tasks and solve them systematically. These skills are valuable not only in tech but in daily life and other professions.""",
-
-"""6. Global Opportunities
-With programming skills, you can work remotely, freelance, or join international companies. Geography is no longer a barrier; projects and jobs can come from anywhere in the world.""",
-
-"""7. Continuous Learning
-Technology evolves rapidly. Learning programming ensures you remain adaptable, learning new languages, frameworks, and tools. This continuous growth keeps your skills relevant and future-proof.""",
 
 """By learning software programming, I gain a powerful, versatile, and future-oriented skill that allows me to create, innovate, and succeed. It is not just about writing code — it is about building tools, solving problems, and shaping the digital world around me."""
 ]

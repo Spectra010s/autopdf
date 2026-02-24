@@ -69,7 +69,6 @@ page3_content = [
 
 """One reason I am interested in AI is because it combines mathematics, programming, and logical thinking. It challenges the mind and requires deep analytical skills.""",
 
-"""Another reason is the impact AI has on society. AI systems are used to improve healthcare, increase business efficiency, enhance security systems, and make daily tasks easier. Being part of a field that contributes to major technological advancements is highly motivating.""",
 
 """In addition, Artificial Intelligence offers strong financial opportunities. Due to its complexity and demand, AI professionals are highly valued in the job market. Many companies invest heavily in AI research and development, making it a financially rewarding career path.""",
 

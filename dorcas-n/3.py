@@ -70,7 +70,7 @@ page3_content = [
 
 """One major reason I am interested in cloud computing is because it focuses on how large systems are built and managed. I want to understand how data is stored securely, how servers operate remotely, and how companies manage massive amounts of information without relying solely on physical hardware.""",
 
-"""Another reason is the growing importance of remote work and online collaboration. Cloud computing enables people to work from different locations while accessing shared resources securely. As technology continues to evolve, cloud-based systems will remain essential in business operations. Being skilled in cloud computing means being prepared for the future of digital work environments.""",
+"""Another reason is the growing importance of remote work and online collaboration. Cloud computing enables people to work from different locations while accessing shared resources securely.""",
 
 """In addition, cloud computing offers strong financial opportunities. Many organizations rely heavily on cloud services, and there is high demand for professionals who can manage cloud infrastructure, security, and storage systems.""",
 

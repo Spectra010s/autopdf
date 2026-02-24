@@ -69,8 +69,6 @@ page3_content = [
 
 """One reason I am interested in cybersecurity is because it requires intelligence, strategy, and critical thinking. Cybersecurity professionals must constantly analyze systems, identify potential risks, and develop solutions to prevent attacks.""",
 
-"""Another reason is the sense of responsibility and impact it carries. Knowing that I can contribute to keeping digital environments secure makes this field meaningful to me.""",
-
 """In addition, cybersecurity offers strong financial opportunities. Because cybercrime is increasing globally, companies, banks, hospitals, and governments invest heavily in cybersecurity professionals. This high demand makes it a stable and well-paying career path.""",
 
 """Cybersecurity also provides opportunities for career growth and specialization. Some common roles include:""",

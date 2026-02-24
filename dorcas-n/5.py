@@ -87,12 +87,8 @@ page3_content = [
 """Versatility – Data visualization is used everywhere: analyzing sales trends, predicting customer behavior, tracking social media performance, helping scientists understand research results, and more.""",
 
 """Creativity and technical skill – Data visualization involves understanding data, choosing the right visualization type, designing appealing visuals, and presenting information effectively. This combination makes it a fun, rewarding, and intellectually stimulating skill.""",
-
-"""Career growth – Professionals skilled in data visualization are highly sought after in business intelligence, finance, marketing, healthcare, education, and tech industries.""",
-
 """Financial opportunities – Organizations value employees who can turn data into actionable insights, which leads to competitive salaries and career stability.""",
 
-"""Problem-solving – Learning data visualization improves analytical thinking and decision-making skills, as it requires identifying patterns, trends, and insights in large datasets.""",
 
 """Overall, I chose data visualization because it combines problem-solving, creativity, career growth, and financial potential. It is a modern, practical, and highly relevant skill for the future."""
 ]
@@ -112,8 +108,7 @@ page4_content = [
 """- Faster decision-making – Businesses and organizations can make better decisions quickly.""",
 """- Career opportunities – Skilled professionals are needed in data analysis, business intelligence, marketing, and healthcare.""",
 """- Creativity and technical skill development – It combines design skills with analytical thinking.""",
-"""- Problem-solving skills – Learning to choose the right chart or visualization type improves critical thinking.""",
-"""- Better data understanding – Visualization helps identify patterns, trends, and outliers that might be missed in raw data.""",
+
 """- Presentation skills – Data visualization improves the ability to present data professionally to others.""",
 
 """By learning data visualization, I will gain a skill that helps interpret information, communicate clearly, make smarter decisions, and remain valuable in the modern technology-driven world."""
