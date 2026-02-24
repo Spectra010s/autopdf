@@ -31,7 +31,7 @@ elements.append(Spacer(1, 0.4 * inch))
 page2_content = [
 """Cloud computing is the delivery of computing services such as storage, databases, networking, software, and processing power over the internet instead of using local computers or physical servers. In simple terms, it allows individuals and organizations to store and access data online rather than on a personal device.""",
 
-"""Traditionally, data and software were stored on physical hardware like hard drives or company servers. However, cloud computing allows users to store their data in secure online data centers managed by cloud service providers. This makes information accessible from anywhere in the world as long as there is an internet connection.""",
+"""Traditionally, data and software were stored on physical hardware like hard drives or company servers. This makes information accessible from anywhere in the world as long as there is an internet connection.""",
 
 """There are three main types of cloud computing services:""",
 
@@ -50,7 +50,7 @@ This allows users to access software applications online without installing them
 """2. Private Cloud – Cloud systems used exclusively by one organization.""",
 """3. Hybrid Cloud – A combination of public and private cloud systems.""",
 
-"""Cloud computing improves efficiency, flexibility, and scalability. Businesses can easily increase or reduce storage and computing power based on their needs. It also enhances collaboration, as multiple users can access and edit files in real time from different locations.""",
+"""Cloud computing improves efficiency, flexibility, and scalability. Businesses can easily increase or reduce storage and computing power based on their needs.""",
 
 """Today, cloud computing is essential in industries such as banking, healthcare, education, entertainment, and government operations. It supports online banking systems, streaming services, remote work platforms, and large-scale business operations."""
 ]
@@ -68,11 +68,11 @@ elements.append(Spacer(1, 0.4 * inch))
 page3_content = [
 """I want to learn cloud computing because it is one of the most important technologies supporting the modern digital world. Almost every online service people use today depends on cloud infrastructure. From storing photos and documents to running large business systems, cloud computing makes digital access possible and efficient.""",
 
-"""One major reason I am interested in cloud computing is because it focuses on how large systems are built and managed. I want to understand how data is stored securely, how servers operate remotely, and how companies manage massive amounts of information without relying solely on physical hardware. Learning cloud computing will give me insight into how global digital systems function.""",
+"""One major reason I am interested in cloud computing is because it focuses on how large systems are built and managed. I want to understand how data is stored securely, how servers operate remotely, and how companies manage massive amounts of information without relying solely on physical hardware.""",
 
 """Another reason is the growing importance of remote work and online collaboration. Cloud computing enables people to work from different locations while accessing shared resources securely. As technology continues to evolve, cloud-based systems will remain essential in business operations. Being skilled in cloud computing means being prepared for the future of digital work environments.""",
 
-"""In addition, cloud computing offers strong financial opportunities. Many organizations rely heavily on cloud services, and there is high demand for professionals who can manage cloud infrastructure, security, and storage systems. Because of this demand, cloud computing provides stable career prospects and competitive income potential.""",
+"""In addition, cloud computing offers strong financial opportunities. Many organizations rely heavily on cloud services, and there is high demand for professionals who can manage cloud infrastructure, security, and storage systems.""",
 
 """Cloud computing also allows specialization in areas such as:""",
 
@@ -80,7 +80,7 @@ page3_content = [
 """2. Cloud Security""",
 """3. Cloud Engineering""",
 
-"""Furthermore, cloud computing supports innovation. Startups and large companies use cloud platforms to develop applications, store data, and scale their operations quickly. By learning cloud computing, I would gain the ability to contribute to building and managing powerful digital systems.""",
+"""Furthermore, cloud computing supports innovation. Startups and large companies use cloud platforms to develop applications, store data, and scale their operations quickly.""",
 
 """Overall, I chose cloud computing because it combines technical knowledge, future relevance, career stability, and financial growth. It is a foundational technology that supports modern digital transformation."""
 ]
@@ -113,13 +113,6 @@ Cloud providers invest heavily in advanced security measures to protect data."""
 
 """6. Career Opportunities Across Industries
 Cloud computing skills are needed in healthcare, finance, education, government, and entertainment sectors.""",
-
-"""7. Continuous Innovation
-Cloud platforms support artificial intelligence, big data analytics, and advanced digital services.""",
-
-"""8. Global Accessibility
-Cloud systems allow access to data and services from anywhere in the world.""",
-
 """By learning cloud computing, I will gain a valuable and future-oriented technological skill that supports digital infrastructure, career growth, and financial advancement in a technology-driven world."""
 ]
 

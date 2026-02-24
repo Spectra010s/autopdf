@@ -144,17 +144,6 @@ Programming is not limited to tech companies. It is used in finance to automate 
 """5. Contribution to Innovation
 Software developers are innovators. By learning programming, I can create apps, tools, or solutions that improve lives. For example, I could build educational software to help students learn faster, a fitness app to track health, or a scheduling tool that simplifies everyday tasks. Programming gives me the power to create impact and improve the world.""",
 
-"""6. Continuous Learning and Growth
-Technology evolves rapidly. Learning programming ensures I stay up-to-date with new languages, frameworks, and tools. This constant learning keeps the career interesting and challenging. I also gain the ability to adapt to different types of projects — from web development to mobile apps, AI, data science, and more.""",
-
-"""7. Independence and Freelancing
-Programming allows me to work independently. I can take on freelance projects, develop my own apps, or start a tech business. This flexibility means I am not limited to one type of job or location — I can create opportunities for myself while building my portfolio and gaining real-world experience.""",
-
-"""8. Problem Analysis and Logical Thinking
-Programming teaches structured thinking. Before writing code, I must analyze the problem, break it into smaller parts, and plan the solution. This strengthens analytical skills, logical reasoning, and decision-making — abilities that are valuable in every aspect of life, not just tech.""",
-
-"""9. Future Relevance
-Software powers almost everything in our daily lives: social media, online banking, education, healthcare, games, and even transportation. By learning programming, I acquire a skill that will remain relevant for decades, preparing me for a future where technology is central to almost every career.""",
 
 """Overall, I chose software programming because it combines creativity, problem-solving, career opportunities, financial growth, and real-world impact. It is not just a skill — it is a gateway to shaping the future and creating meaningful digital experiences."""
 ]
@@ -191,7 +180,7 @@ Automation and robotics
 This versatility allows programmers to explore different careers and work environments.""",
 
 """4. Creativity and Innovation
-Programming is a creative skill. You can develop apps, tools, or games that solve real-world problems or entertain millions. For example, creating an educational app to help students learn faster or a productivity tool to simplify daily tasks.""",
+Programming is a creative skill. You can develop apps, tools, or games that solve real-world problems or entertain millions.""",
 
 """5. Problem-Solving Skills
 Programming strengthens logical thinking and analytical skills. It teaches how to break large problems into smaller, manageable tasks and solve them systematically. These skills are valuable not only in tech but in daily life and other professions.""",
@@ -199,30 +188,8 @@ Programming strengthens logical thinking and analytical skills. It teaches how t
 """6. Global Opportunities
 With programming skills, you can work remotely, freelance, or join international companies. Geography is no longer a barrier; projects and jobs can come from anywhere in the world.""",
 
-"""7. Independence and Entrepreneurship
-Programming empowers you to create your own projects, apps, or even startups. You don’t need to rely solely on a company — you can build products, test ideas, and earn income independently.""",
-
-"""8. Continuous Learning
+"""7. Continuous Learning
 Technology evolves rapidly. Learning programming ensures you remain adaptable, learning new languages, frameworks, and tools. This continuous growth keeps your skills relevant and future-proof.""",
-
-"""9. Societal Impact
-Programs and applications created by developers improve everyday life:
-
-Healthcare apps help manage patient care
-
-Educational software improves learning
-
-Automation tools save time and reduce human error
-Programming allows you to make meaningful contributions that positively affect society.""",
-
-"""10. Professional Recognition
-Being able to write code and build software is a respected skill worldwide. It demonstrates technical ability, creativity, problem-solving, and perseverance — qualities valued in any profession.""",
-
-"""11. Confidence and Empowerment
-Learning to code gives a sense of achievement. Being able to build a website, app, or game from scratch boosts confidence and shows that you can create something tangible from an idea.""",
-
-"""12. Future-Proof Career
-As technology continues to grow, programming remains a core skill for the digital age. Learning it ensures that you have a skill that will be useful for decades, whether in tech or any other sector that relies on digital solutions.""",
 
 """By learning software programming, I gain a powerful, versatile, and future-oriented skill that allows me to create, innovate, and succeed. It is not just about writing code — it is about building tools, solving problems, and shaping the digital world around me."""
 ]

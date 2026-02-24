@@ -104,11 +104,11 @@ page3_content = [
 
 """One major reason I am interested in ethical hacking is the strong demand for cybersecurity professionals. Almost every company — from banks to schools to tech firms — needs security experts to protect their systems. This makes it a highly relevant and future-proof career.""",
 
-"""Another reason is the intellectual challenge it provides. Ethical hacking requires deep thinking, problem-solving, and creativity. It is not a boring or repetitive job; instead, it constantly presents new challenges because hackers are always developing new methods. This means there is continuous learning and growth in the field.""",
+"""Another reason is the intellectual challenge it provides. Ethical hacking requires deep thinking, problem-solving, and creativity. It is not a boring or repetitive job; instead, it constantly presents new challenges because hackers are always developing new methods.""",
 
-"""I am also interested in ethical hacking because of the financial opportunities it offers. Cybersecurity professionals are highly paid due to the critical nature of their work. Since organizations depend heavily on secure systems, they are willing to invest in skilled ethical hackers. This makes it a financially rewarding career path.""",
+"""I am also interested in ethical hacking because of the financial opportunities it offers. Since organizations depend heavily on secure systems, they are willing to invest in skilled ethical hackers. This makes it a financially rewarding career path.""",
 
-"""Additionally, ethical hacking gives a sense of responsibility and impact. Knowing that your skills are being used to protect people’s data and prevent cybercrime is meaningful. It allows one to contribute positively to society by fighting digital threats.""",
+"""Additionally, ethical hacking gives a sense of responsibility and impact. Knowing that your skills are being used to protect people’s data and prevent cybercrime is meaningful.""",
 
 """Overall, I chose ethical hacking because it combines intelligence, responsibility, high demand, career growth, and strong financial potential."""
 ]
@@ -146,7 +146,6 @@ Ethical hacking improves:
 - Critical thinking
 - Logical reasoning
 - Technical knowledge
-- Attention to detail
 - Problem-solving skills""",
 
 """6. Protection of Society

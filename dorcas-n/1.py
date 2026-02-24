@@ -39,7 +39,7 @@ page2_content = [
 """4. Ransomware – A type of attack where hackers lock a system and demand payment to unlock it.""",
 """5. Identity Theft – Stealing someone’s personal information for fraud.""",
 
-"""Cybersecurity focuses on preventing these attacks and protecting sensitive information such as passwords, financial records, medical data, and confidential documents.""",
+"""Cybersecurity focuses on preventing these attacks and protecting sensitive information""",
 
 """There are several branches of cybersecurity:""",
 
@@ -67,9 +67,9 @@ elements.append(Spacer(1, 0.4 * inch))
 page3_content = [
 """I want to learn cybersecurity because technology is becoming more advanced every day, and cyber threats are increasing rapidly. Many individuals and organizations rely on digital platforms to store and manage sensitive information. Protecting this information is a serious responsibility.""",
 
-"""One reason I am interested in cybersecurity is because it requires intelligence, strategy, and critical thinking. Cybersecurity professionals must constantly analyze systems, identify potential risks, and develop solutions to prevent attacks. I am drawn to skills that challenge the mind and require problem-solving abilities.""",
+"""One reason I am interested in cybersecurity is because it requires intelligence, strategy, and critical thinking. Cybersecurity professionals must constantly analyze systems, identify potential risks, and develop solutions to prevent attacks.""",
 
-"""Another reason is the sense of responsibility and impact it carries. Cybersecurity professionals help protect people’s privacy, financial information, and important records. Knowing that I can contribute to keeping digital environments secure makes this field meaningful to me.""",
+"""Another reason is the sense of responsibility and impact it carries. Knowing that I can contribute to keeping digital environments secure makes this field meaningful to me.""",
 
 """In addition, cybersecurity offers strong financial opportunities. Because cybercrime is increasing globally, companies, banks, hospitals, and governments invest heavily in cybersecurity professionals. This high demand makes it a stable and well-paying career path.""",
 
@@ -100,9 +100,6 @@ page4_content = [
 """4. Continuous Learning and Growth – Cyber threats constantly evolve, requiring ongoing learning.""",
 """5. Development of Analytical and Technical Skills – It improves logical reasoning and technical knowledge.""",
 """6. Opportunity to Work in Various Industries – Banking, healthcare, government, education, and more.""",
-"""7. Remote Work Opportunities – Many cybersecurity roles allow flexible remote work.""",
-"""8. Contribution to a Safer Digital World – Professionals help maintain trust and safety in online systems.""",
-"""9. Professional Recognition and Respect – Cybersecurity is a respected and specialized field.""",
 
 """By learning cybersecurity, I will gain a powerful technical skill that provides financial stability and allows me to contribute to protecting digital systems in an increasingly connected world."""
 ]

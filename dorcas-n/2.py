@@ -49,7 +49,7 @@ This enables machines to recognize images and objects. Facial recognition system
 """4. Robotics
 AI is used in robots to perform tasks such as manufacturing, surgery, or automated delivery.""",
 
-"""AI is used in many industries, including healthcare, finance, education, transportation, and entertainment. For example, AI helps doctors detect diseases, banks detect fraud, and companies analyze customer behavior.""",
+"""AI is used in many industries, including healthcare, finance, education, transportation, and entertainment. For example.""",
 
 """As technology advances, Artificial Intelligence continues to grow and influence nearly every aspect of modern life."""
 ]
@@ -67,7 +67,7 @@ elements.append(Spacer(1, 0.4 * inch))
 page3_content = [
 """I want to learn Artificial Intelligence because it is one of the most advanced and rapidly growing fields in technology. AI is shaping the future, and many modern innovations depend on intelligent systems. Learning AI will allow me to understand how smart technologies work and how they are developed.""",
 
-"""One reason I am interested in AI is because it combines mathematics, programming, and logical thinking. It challenges the mind and requires deep analytical skills. I am attracted to fields that involve problem-solving and innovation.""",
+"""One reason I am interested in AI is because it combines mathematics, programming, and logical thinking. It challenges the mind and requires deep analytical skills.""",
 
 """Another reason is the impact AI has on society. AI systems are used to improve healthcare, increase business efficiency, enhance security systems, and make daily tasks easier. Being part of a field that contributes to major technological advancements is highly motivating.""",
 
@@ -111,12 +111,6 @@ Studying AI improves logical reasoning, analytical thinking, and technical skill
 
 """6. Contribution to Technological Advancement
 AI drives innovation in healthcare, transportation, education, and communication.""",
-
-"""7. Global Impact
-AI solutions can be used worldwide to improve efficiency and quality of life.""",
-
-"""8. Future-Oriented Skill
-As technology continues to evolve, AI will remain one of the most important and influential fields.""",
 
 """By learning Artificial Intelligence, I will gain a highly advanced and respected technological skill that prepares me for future innovations and opportunities in the digital world."""
 ]

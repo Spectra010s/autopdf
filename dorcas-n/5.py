@@ -46,7 +46,6 @@ page2_content = [
 
 """- Microsoft Excel – Basic charts and graphs""",
 """- Tableau – Interactive and professional dashboards""",
-"""- Power BI – Business-focused data visualization""",
 """- Google Data Studio – Online interactive dashboards""",
 """- Python (Matplotlib, Seaborn) – Programming-based visualization""",
 
@@ -58,7 +57,6 @@ page2_content = [
 """- Supports decision-making – Businesses use visual data to understand trends, identify problems, and make better strategies""",
 """- Improves communication – Charts and dashboards help explain insights clearly to teams, clients, or management""",
 """- Identifies patterns and trends – Visualization makes hidden patterns visible, guiding predictions and strategies""",
-"""- Saves time – Visual data is faster to interpret than large tables of numbers""",
 
 """Applications of Data Visualization""",
 
@@ -86,7 +84,7 @@ page3_content = [
 
 """Understanding information quickly – In today’s fast-paced world, businesses and organizations cannot spend hours interpreting data. Visualization makes insights easy to see and act upon.""",
 
-"""Versatility – Data visualization is used everywhere: analyzing sales trends, predicting customer behavior, tracking social media performance, helping scientists understand research results, and more. Learning this skill will give me the ability to work in many industries and solve real-world problems.""",
+"""Versatility – Data visualization is used everywhere: analyzing sales trends, predicting customer behavior, tracking social media performance, helping scientists understand research results, and more.""",
 
 """Creativity and technical skill – Data visualization involves understanding data, choosing the right visualization type, designing appealing visuals, and presenting information effectively. This combination makes it a fun, rewarding, and intellectually stimulating skill.""",
 
@@ -95,8 +93,6 @@ page3_content = [
 """Financial opportunities – Organizations value employees who can turn data into actionable insights, which leads to competitive salaries and career stability.""",
 
 """Problem-solving – Learning data visualization improves analytical thinking and decision-making skills, as it requires identifying patterns, trends, and insights in large datasets.""",
-
-"""Future relevance – As data continues to grow globally, the ability to interpret and present it visually will remain a crucial and in-demand skill.""",
 
 """Overall, I chose data visualization because it combines problem-solving, creativity, career growth, and financial potential. It is a modern, practical, and highly relevant skill for the future."""
 ]
@@ -119,8 +115,6 @@ page4_content = [
 """- Problem-solving skills – Learning to choose the right chart or visualization type improves critical thinking.""",
 """- Better data understanding – Visualization helps identify patterns, trends, and outliers that might be missed in raw data.""",
 """- Presentation skills – Data visualization improves the ability to present data professionally to others.""",
-"""- Versatility across industries – Data visualization is used in business, education, government, healthcare, sports, and tech.""",
-"""- Decision support – Data visualization allows companies to spot risks, opportunities, and trends quickly.""",
 
 """By learning data visualization, I will gain a skill that helps interpret information, communicate clearly, make smarter decisions, and remain valuable in the modern technology-driven world."""
 ]
