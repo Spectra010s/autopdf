@@ -31,7 +31,6 @@ elements.append(Spacer(1, 0.4 * inch))
 page2_content = [
 """Software programming, also called coding or software development, is the process of designing, writing, testing, and maintaining instructions (called code) that tell a computer or digital device how to function. Programming is the foundation of the modern digital world, transforming abstract ideas into real applications, games, websites, and systems that people use every day.""",
 
-"""Programming is more than typing commands — it combines logic, problem-solving, creativity, and precision. Every app, website, or tool depends on it. Without programming, smartphones, social media, online banking, and even video games would not exist.""",
 
 """Core Concepts of Programming""",
 

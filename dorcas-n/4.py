@@ -63,8 +63,6 @@ Testing how vulnerable employees are to phishing and scams.""",
 Ethical hackers use professional tools like:
 - Kali Linux
 - Wireshark
-- Metasploit
-- Burp Suite
 - Nmap
 These tools help scan networks, analyze traffic, and simulate attacks.""",
 
@@ -80,12 +78,7 @@ Ethical hacking requires patience, attention to detail, and critical thinking.""
 
 """Why Ethical Hacking is Important Today
 With the rise of digital banking, online businesses, social media, and cloud storage, cybercrime has increased significantly. Companies, governments, and individuals store sensitive data online.
-Without ethical hackers, organizations would be more vulnerable to:
-- Data breaches
-- Identity theft
-- Financial fraud
-- Ransomware attacks
-- Privacy violations
+Without ethical hackers, organizations would be more vulnerable.
 Ethical hackers help prevent financial loss and protect people's personal information."""
 ]
 

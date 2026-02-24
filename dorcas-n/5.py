@@ -31,7 +31,7 @@ elements.append(Spacer(1, 0.4 * inch))
 page2_content = [
 """Data visualization is the process of turning raw data into visual formats such as charts, graphs, dashboards, and interactive reports. Instead of looking at plain numbers, people can understand information quickly and make better decisions when it is presented visually.""",
 
-"""In today’s world, data is everywhere. Companies, schools, hospitals, banks, and governments collect massive amounts of information daily. Data visualization helps make sense of all this data so it can be interpreted easily and accurately.""",
+"""In today’s world, data is everywhere. Companies, schools, hospitals, banks, and governments collect massive amounts of information daily.""" 
 
 """Types of Data Visualization""",
 

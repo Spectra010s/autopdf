@@ -33,7 +33,7 @@ page2_content = [
 
 """In simple terms, AI allows computers to “think” and “learn” from experience instead of only following fixed instructions.""",
 
-"""Artificial Intelligence works by using algorithms and large amounts of data to train computer systems. Through a process called machine learning, AI systems can improve their performance over time without being manually programmed for every task.""",
+"""Artificial Intelligence works by using algorithms and large amounts of data to train computer systems.""",
 
 """There are different types of Artificial Intelligence:""",
 

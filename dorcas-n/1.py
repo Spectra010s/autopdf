@@ -29,7 +29,7 @@ elements.append(Paragraph("CYBERSECURITY", title_style))
 elements.append(Spacer(1, 0.4 * inch))
 
 page2_content = [
-"""Cybersecurity is the practice of protecting computers, mobile devices, networks, software systems, and digital data from cyber threats and unauthorized access. In today’s modern world, almost everything is connected to the internet — banking, communication, education, healthcare, business transactions, and even government operations. Because of this, protecting digital information has become extremely important.""",
+"""Cybersecurity is the practice of protecting computers, mobile devices, networks, software systems, and digital data from cyber threats and unauthorized access. In today’s modern world, almost everything is connected to the internet — banking, communication, business transactions, and even government operations.""",
 
 """Cyber threats are malicious activities carried out by hackers or cybercriminals to steal, damage, or disrupt data and systems. Some common types of cyber threats include:""",
 

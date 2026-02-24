@@ -29,7 +29,7 @@ elements.append(Paragraph("CLOUD COMPUTING", title_style))
 elements.append(Spacer(1, 0.4 * inch))
 
 page2_content = [
-"""Cloud computing is the delivery of computing services such as storage, databases, networking, software, and processing power over the internet instead of using local computers or physical servers. In simple terms, it allows individuals and organizations to store and access data online rather than on a personal device.""",
+"""Cloud computing is the delivery of computing services such as storage, databases, networking, software, and processing power over the internet instead of using local computers or physical servers.""",
 
 """Traditionally, data and software were stored on physical hardware like hard drives or company servers. This makes information accessible from anywhere in the world as long as there is an internet connection.""",
 
